@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="navbar-inner">
         <Link to="/" className="brand-link">
           <div className="brand-dot"></div>
-          <h1 className='text-red-500'>Fruit Store</h1>
+          <h1>Fruit Store</h1>
         </Link>
         <ul className="nav-links">
           <li>
@@ -21,9 +21,6 @@ const Navbar = () => {
             <Link to='/cart'>
               Cart {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
             </Link>
-          </li>
-          <li>
-            <Link to='/admin'>Admin</Link>
           </li>
         </ul>
       </div>

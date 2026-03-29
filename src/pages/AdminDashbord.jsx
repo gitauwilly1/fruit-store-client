@@ -20,9 +20,11 @@ const AdminDashboard = () => {
   const fetchFruits = async () => {
     try {
       const response = await API.get('/api/fruits')
-      setFruits(response.data)
+      const data = response.data
+      setFruits(Array.isArray(data) ? data : [])
     } catch (err) {
       setError(err.message)
+      setFruits([])
     } finally {
       setLoading(false)
     }
@@ -145,11 +147,11 @@ const AdminDashboard = () => {
       <div className="fruits-list">
         <h2>Fruits Inventory</h2>
         <div className="admin-fruits-grid">
-          {fruits.map(fruit => (
+          {fruits.map((fruit) => (
             <div key={fruit._id} className="admin-fruit-card">
               <div className="admin-fruit-info">
                 <h3>{fruit.name}</h3>
-                <p>Price: Ksh {fruit.price.toFixed(2)}</p>
+                <p>Price: Ksh {Number(fruit.price).toFixed(2)}</p>
                 <p>Quantity: {fruit.quantity}</p>
               </div>
               <div className="admin-fruit-actions">

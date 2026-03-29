@@ -13,9 +13,11 @@ export const Fruits = () => {
         const fetchFruits = async () => {
             try {
                 const response = await API.get('/api/fruits')
-                setFruits(response.data)
+                const data = response.data
+                setFruits(Array.isArray(data) ? data : [])
             } catch (err) {
                 setError(err.message)
+                setFruits([])
             } finally {
                 setLoading(false)
             }

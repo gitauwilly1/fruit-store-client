@@ -4,7 +4,6 @@ import Navbar from './components/Navbar'
 import { Fruits } from './pages/Fruits'
 import FruitDetails from './pages/FruitDetails'
 import Cart from './pages/Cart'
-import AdminDashboard from './pages/AdminDashboard'
 import Checkout from './pages/Checkout'
 import { CartProvider } from './context/CartContext'
 
@@ -18,7 +17,6 @@ function App() {
           <Route path="/fruit/:id" element={<FruitDetails />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </Router>
     </CartProvider>
